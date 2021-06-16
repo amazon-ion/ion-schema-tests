@@ -11,25 +11,29 @@ type::{
   name: import_types_test,
   type: struct,
   fields: {
-    a2: a2,
+    a: a2,
     positive_int: positive_int,
     b: b,
     posint: posint,
-    c2: c2,
+    c: c2,
   },
 }
 schema_footer::{
 }
 
-valid::[
-  { a: a, positive_int: 5, b: b, posint: 6, c: c },
-]
+valid::{
+  import_types_test:[
+    { a: a, positive_int: 5, b: b, posint: 6, c: c },
+  ]
+}
 
-invalid::[
-  { a: b, positive_int:  5, b: b, posint:  6, c: c },
-  { a: a, positive_int: -1, b: b, posint:  6, c: c },
-  { a: a, positive_int:  5, b: a, posint:  6, c: c },
-  { a: a, positive_int:  5, b: b, posint: -1, c: c },
-  { a: a, positive_int:  5, b: b, posint:  6, c: b },
-]
+invalid::{
+  import_types_test:[
+    { a: b, positive_int:  5, b: b, posint:  6, c: c },
+    { a: a, positive_int: -1, b: b, posint:  6, c: c },
+    { a: a, positive_int:  5, b: a, posint:  6, c: c },
+    { a: a, positive_int:  5, b: b, posint: -1, c: c },
+    { a: a, positive_int:  5, b: b, posint:  6, c: b },
+  ]
+}
 
