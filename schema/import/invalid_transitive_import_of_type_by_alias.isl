@@ -1,4 +1,4 @@
-// type 'positive_int' should not be recognized in this schema:
+// type 'positive_int_1' should not be recognized in this schema:
 invalid_schema::document::'''
   schema_header::{
     imports: [
@@ -6,8 +6,8 @@ invalid_schema::document::'''
     ],
   }
   type::{
-    name: import_schema_with_aliased_type_test,
-    type: positive_int,
+    name: attempted_transitive_import_of_type_by_alias,
+    type: positive_int_1,
   }
   schema_footer::{}
 '''
