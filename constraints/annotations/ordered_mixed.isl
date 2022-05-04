@@ -1,5 +1,5 @@
 type::{
-  annotations: ordered::optional::[a, required::b, c, required::d],
+  annotations: ordered::[a, required::b, c, required::d],
 }
 valid::[
      b::   d::5,
