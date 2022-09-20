@@ -1,16 +1,21 @@
-invalid_type::{ container_length: null }
-invalid_type::{ container_length: null.int }
-invalid_type::{ container_length: null.list }
-invalid_type::{ container_length: x }
-invalid_type::{ container_length: -1 }
-invalid_type::{ container_length: 5.2 }
-invalid_type::{ container_length: [0, 5] }
-invalid_type::{ container_length: range::[min, max] }
-invalid_type::{ container_length: range::[1, 0] }
-invalid_type::{ container_length: range::[1] }
-invalid_type::{ container_length: range::[0, 1, 2] }
-invalid_type::{ container_length: range::[0d0, 1] }
-invalid_type::{ container_length: range::[0e0, 1] }
-invalid_type::{ container_length: range::[0, 1d0] }
-invalid_type::{ container_length: range::[0, 1e0] }
-
+$ion_schema_1_0
+$test::{
+  description: "container_length must be a non-negative integer or range",
+  invalid_types: [
+    { container_length: null },
+    { container_length: null.int },
+    { container_length: null.list },
+    { container_length: x },
+    { container_length: -1 },
+    { container_length: 5.2 },
+    { container_length: [0, 5] },
+    { container_length: range::[min, max] },
+    { container_length: range::[1, 0] },
+    { container_length: range::[1] },
+    { container_length: range::[0, 1, 2] },
+    { container_length: range::[0d0, 1] },
+    { container_length: range::[0e0, 1] },
+    { container_length: range::[0, 1d0] },
+    { container_length: range::[0, 1e0] },
+  ]
+}

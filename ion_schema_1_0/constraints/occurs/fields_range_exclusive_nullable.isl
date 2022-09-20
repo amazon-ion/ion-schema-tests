@@ -1,18 +1,24 @@
-type::{ fields: { a: { type: nullable::string, occurs: range::[exclusive::1, exclusive::3] } } }
-valid::[
-  { a: null, a: null },
-  { a: null.string, a: null.string },
-  { a: "1", a: "2" },
-]
-invalid::[
-  null,
-  { },
-  { a: null },
-  { a: null.string },
-  { a: null.int, a: null.int },
-  { a: null, a: null, a: null },
-  { a: null.string, a: null.string, a: null.string },
-  { a: "1" },
-  { a: "1", a: "2", a: "3" },
-]
-
+$ion_schema_1_0
+type::{
+  name: occurs_fields_range_exclusive_nullable,
+  fields: { a: { type: nullable::string, occurs: range::[exclusive::1, exclusive::3] } }
+}
+$test::{
+  type: occurs_fields_range_exclusive_nullable,
+  should_accept_as_valid: [
+    { a: null, a: null },
+    { a: null.string, a: null.string },
+    { a: "1", a: "2" },
+  ],
+  should_reject_as_invalid: [
+    null,
+    { },
+    { a: null },
+    { a: null.string },
+    { a: null.int, a: null.int },
+    { a: null, a: null, a: null },
+    { a: null.string, a: null.string, a: null.string },
+    { a: "1" },
+    { a: "1", a: "2", a: "3" },
+  ]
+}

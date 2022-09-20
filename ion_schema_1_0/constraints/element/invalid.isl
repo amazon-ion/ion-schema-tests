@@ -1,6 +1,11 @@
-invalid_type::{ element: null }
-invalid_type::{ element: null.int }
-invalid_type::{ element: 5 }
-invalid_type::{ element: [] }
-invalid_type::{ element: () }
-
+$ion_schema_1_0
+$test::{
+  description: "element should be a type reference",
+  invalid_types: [
+    { element: null },
+    { element: null.int },
+    { element: 5 },
+    { element: [] },
+    { element: () },
+  ]
+}

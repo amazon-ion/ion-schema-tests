@@ -1,11 +1,15 @@
+$ion_schema_1_0
 type::{
+    name: annotations_closed_ordered_mixed,
     annotations: closed::ordered::required::[a, b, optional::c],
 }
-valid::[
+$test::{
+  type: annotations_closed_ordered_mixed,
+  should_accept_as_valid: [
     a::b::5,
     a::b::c::5,
-]
-invalid::[
+  ],
+  should_reject_as_invalid: [
     5,
     a::5,
     b::5,
@@ -16,4 +20,5 @@ invalid::[
     a::b::c::a::5,
     a::b::d::5,
     a::b::c::d::5,
-]
+  ]
+}

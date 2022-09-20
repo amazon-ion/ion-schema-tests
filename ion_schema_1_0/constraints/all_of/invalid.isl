@@ -1,6 +1,12 @@
-invalid_type::{ all_of: null.list }
-invalid_type::{ all_of: 5 }
-invalid_type::{ all_of: () }
-invalid_type::{ all_of: {} }
-invalid_type::{ all_of: [5] }
+$ion_schema_1_0
 
+$test::{
+  description: "all_of must have a list of type references",
+  invalid_types: [
+    { all_of: null.list },
+    { all_of: 5 },
+    { all_of: () },
+    { all_of: {} },
+    { all_of: [5] },
+  ]
+}

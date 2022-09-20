@@ -1,3 +1,4 @@
+$ion_schema_1_0
 schema_header::{
   imports: [
     { id: "schema/util/positive_int.isl", type: positive_int }
@@ -10,22 +11,19 @@ type::{
 schema_footer::{
 }
 
-valid::{
-  import_type_test: [
+$test::{
+  type: import_type_test,
+  should_accept_as_valid: [
     [1, 2, 3],
     (1 2 3),
     { a: 1, b: 2, c: 3 },
-    document::"1 2 3",
+    document::(1 2 3),
   ],
-}
-
-invalid::{
-  import_type_test: [
+  should_reject_as_invalid: [
     [0],
     (-1),
     { a: 0.0 },
-    document::"0",
-    document::"hi",
+    document::(0),
+    document::(hi),
   ],
 }
-

@@ -1,13 +1,17 @@
+$ion_schema_1_0
 type::{       // equivalent to type::{ type: any }
+  name: type_empty_type,
 }
-valid::[
-  true,
-  5,
-  [],
-  document::""
-]
-invalid::[
-  null,
-  null.int,
-]
-
+$test::{
+  type: type_empty_type,
+  should_accept_as_valid: [
+    true,
+    5,
+    [],
+    document::()
+  ],
+  should_reject_as_invalid: [
+    null,
+    null.int,
+  ]
+}
