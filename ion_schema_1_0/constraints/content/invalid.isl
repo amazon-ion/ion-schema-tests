@@ -1,5 +1,10 @@
-invalid_type::{ content: null }
-invalid_type::{ content: null.int }
-invalid_type::{ content: open }
-invalid_type::{ content: 5 }
-
+$ion_schema_1_0
+$test::{
+  description: "content may only be followed by the symbol 'closed'",
+  invalid_types: [
+    { content: null },
+    { content: null.int },
+    { content: open },
+    { content: 5 },
+  ]
+}

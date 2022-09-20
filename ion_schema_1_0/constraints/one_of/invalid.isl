@@ -1,6 +1,11 @@
-invalid_type::{ one_of: null.list }
-invalid_type::{ one_of: 5 }
-invalid_type::{ one_of: () }
-invalid_type::{ one_of: {} }
-invalid_type::{ one_of: [5] }
-
+$ion_schema_1_0
+$test::{
+  description: "one_of must be a list of type references",
+  invalid_types: [
+    { one_of: null.list },
+    { one_of: 5 },
+    { one_of: () },
+    { one_of: {} },
+    { one_of: [5] },
+  ]
+}

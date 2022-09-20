@@ -1,5 +1,9 @@
-// missing schema_footer:
-invalid_schema::document::'''
-  schema_header::{}
-'''
+$ion_schema_1_0
+$test::{
+  description: "missing schema_footer",
+  invalid_schema: (
 
+    schema_header::{}
+
+  )
+}

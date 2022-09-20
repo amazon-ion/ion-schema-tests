@@ -1,3 +1,4 @@
+$ion_schema_1_0
 // verifies that inline type imports work and don't cause duplicate name conflicts
 // with other inline imports or schema header imports
 schema_header::{
@@ -20,13 +21,12 @@ type::{
 }
 schema_footer::{}
 
-valid::{
-  import_inline_test: [
+$test::{
+  type: import_inline_test,
+  should_accept_as_valid: [
     { a1: 1, a2: 2, a3: 3, b: 1, b2: 2, b3: 3 },
   ],
-}
-invalid::{
-  import_inline_test: [
+  should_reject_as_invalid: [
     { a1: 0, a2: 2, a3: 3, b1: 1, b2: 2, b3: 3 },
     { a1: 1, a2: 0, a3: 3, b1: 1, b2: 2, b3: 3 },
     { a1: 1, a2: 2, a3: 0, b1: 1, b2: 2, b3: 3 },
@@ -35,4 +35,3 @@ invalid::{
     { a1: 1, a2: 2, a3: 3, b1: 1, b2: 2, b3: 0 },
   ],
 }
-

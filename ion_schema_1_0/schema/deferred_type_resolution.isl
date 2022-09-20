@@ -1,3 +1,5 @@
+$ion_schema_1_0
+
 // asserts that all constraints that have a type reference work when
 // the referenced type is defined later in the ISL.  in such cases,
 // resolution of the type reference is deferred until it is found.
@@ -45,24 +47,43 @@ type::{
 schema_footer::{
 }
 
-valid::{
-              type: [ abc ],
-           element: [ [abc] ],
-            fields: [ {a: abc} ],
-  ordered_elements: [ [abc] ],
-            all_of: [ abc ],
-            any_of: [ abc ],
-            one_of: [ abc ],
-               not: [ ab, abcd ],
+$test::{
+  type: type,
+  should_accept_as_valid: [ abc ],
+  should_reject_as_invalid: [ ab, abcd ],
 }
-invalid::{
-              type: [ ab, abcd ],
-           element: [ [ab], [abcd] ],
-            fields: [ {a: ab}, {a: abcd} ],
-  ordered_elements: [ [ab], [abcd] ],
-            all_of: [ ab, abcd ],
-            any_of: [ ab, abcd ],
-            one_of: [ ab, abcd ],
-               not: [ abc ],
+$test::{
+  type: element,
+  should_accept_as_valid: [ [abc] ],
+  should_reject_as_invalid: [[ab], [abcd] ],
 }
-
+$test::{
+  type: fields,
+  should_accept_as_valid: [ {a: abc} ],
+  should_reject_as_invalid: [ {a: ab}, {a: abcd} ],
+}
+$test::{
+  type: ordered_elements,
+  should_accept_as_valid: [ [abc] ],
+  should_reject_as_invalid: [ [ab], [abcd] ],
+}
+$test::{
+  type: all_of,
+  should_accept_as_valid: [ abc ],
+  should_reject_as_invalid: [ ab, abcd ],
+}
+$test::{
+  type: any_of,
+  should_accept_as_valid: [ abc ],
+  should_reject_as_invalid: [ ab, abcd ],
+}
+$test::{
+  type: one_of,
+  should_accept_as_valid: [ abc ],
+  should_reject_as_invalid: [ ab, abcd ],
+}
+$test::{
+  type: not,
+  should_accept_as_valid: [ ab, abcd ],
+  should_reject_as_invalid: [ abc ],
+}

@@ -1,15 +1,28 @@
-invalid_type::{ valid_values: null }
-invalid_type::{ valid_values: null.int }
-invalid_type::{ valid_values: null.list }
-invalid_type::{ valid_values: 5 }
-invalid_type::{ valid_values: () }
-invalid_type::{ valid_values: {} }
+$ion_schema_1_0
+$test::{
+  description: "valid_values must ba a list or range",
+  invalid_types: [
+    { valid_values: null },
+    { valid_values: null.int },
+    { valid_values: null.list },
+    { valid_values: 5 },
+    { valid_values: () },
+    { valid_values: {} },
+  ]
+}
 
-// annotations are not allowed
-invalid_type::{ valid_values: [ hello::5 ] }
+$test::{
+  description: "valid_values may not be annotated",
+  invalid_types: [
+    { valid_values: [ hello::5 ] }
+  ]
+}
 
-// bad ranges
-invalid_type::{ valid_values: range::[ 1, 0 ] }
-invalid_type::{ valid_values: range::[ 0.00000000001, 0 ] }
-invalid_type::{ valid_values: range::[ min, max ] }
-
+$test::{
+  description: "valid_values ranges must be valid number or timestamp ranges",
+  invalid_types: [
+    { valid_values: range::[ 1, 0 ] },
+    { valid_values: range::[ 0.00000000001, 0 ] },
+    { valid_values: range::[ min, max ] },
+  ]
+}

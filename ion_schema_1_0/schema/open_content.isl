@@ -1,3 +1,5 @@
+$ion_schema_1_0
+
 // verify that open content in a schema is ignored
 schema_header::{
   open: content,
@@ -14,16 +16,14 @@ schema_footer::{
   open: content,
 }
 
-valid::{
-  short_string: [
+$test::{
+  type: short_string,
+  should_accept_as_valid: [
     "a",
     "abcde",
   ],
-}
-invalid::{
-  short_string: [
+  should_reject_as_invalid: [
     "",
     "abcdef",
   ],
 }
-

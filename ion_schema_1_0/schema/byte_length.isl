@@ -1,3 +1,5 @@
+$ion_schema_1_0
+
 schema_header::{}
 
 // an int (>= 0) with optional 'exclusive' annotation
@@ -40,41 +42,46 @@ type::{
 
 schema_footer::{}
 
-
-valid::{
-  int_non_negative: [
+$test::{
+  type: int_non_negative,
+  should_accept_as_valid: [
     0,
     1,
     exclusive::100,
   ],
-  range_int_non_negative: [
-    range::[0, 0],
-    range::[exclusive::0, exclusive::0],
-    range::[min, max],
-  ],
-  byte_length: [
-    { byte_length: 0 },
-    { byte_length: 5 },
-    { byte_length: range::[0, 0] },
-    { byte_length: range::[exclusive::0, exclusive::0] },
-    { byte_length: range::[min, max] },
-  ],
-}
-
-invalid::{
-  int_non_negative: [
+  should_reject_as_invalid: [
     -1,
     0.5,
     hello,
   ],
-  range_int_non_negative: [
+}
+
+$test::{
+  type: range_int_non_negative,
+  should_accept_as_valid: [
+    range::[0, 0],
+    range::[exclusive::0, exclusive::0],
+    range::[min, max],
+  ],
+  should_reject_as_invalid: [
     [0, 0],
     range::[-1, 0],
     range::[0, -1],
     range::[0],
     range::[0, 1, 2],
   ],
-  byte_length: [
+}
+
+$test::{
+  type: byte_length,
+  should_accept_as_valid: [
+    { byte_length: 0 },
+    { byte_length: 5 },
+    { byte_length: range::[0, 0] },
+    { byte_length: range::[exclusive::0, exclusive::0] },
+    { byte_length: range::[min, max] },
+  ],
+  should_reject_as_invalid: [
     { byte_length: -1 },
     { byte_length: 0.5 },
     { byte_length: hello },

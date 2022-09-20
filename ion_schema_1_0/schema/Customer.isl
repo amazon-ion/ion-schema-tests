@@ -1,3 +1,4 @@
+$ion_schema_1_0
 schema_header::{
   imports: [
     { id: "schema/util/positive_int.isl", type: positive_int }
@@ -16,18 +17,15 @@ type::{
 schema_footer::{
 }
 
-valid::{
-  Customer: [
+$test::{
+  type: Customer,
+  should_accept_as_valid: [
     { firstName: "Phil", lastName: "Collins" },
     { firstName: "Phil", lastName: "Collins", middleName: "Billy" },
     { firstName: "Phil", lastName: "Collins", age: 68 },
   ],
-}
-
-invalid::{
-  Customer: [
+  should_reject_as_invalid: [
     { firstName: "Phil", middleName: "Billy" },
     { firstName: "Phil", lastName: "Collins", age: -1 },
   ],
 }
-

@@ -1,16 +1,21 @@
-invalid_type::{ timestamp_offset: null }
-invalid_type::{ timestamp_offset: null.string }
-invalid_type::{ timestamp_offset: null.list }
-invalid_type::{ timestamp_offset: 5 }
-invalid_type::{ timestamp_offset: [] }
-invalid_type::{ timestamp_offset: [5] }
-invalid_type::{ timestamp_offset: [""] }
-invalid_type::{ timestamp_offset: ["Z"] }
-invalid_type::{ timestamp_offset: ["+0000"] }
-invalid_type::{ timestamp_offset: ["00:00"] }
-invalid_type::{ timestamp_offset: [" 00:00"] }
-invalid_type::{ timestamp_offset: ["00:00 "] }
-invalid_type::{ timestamp_offset: ["*00:00"] }
-invalid_type::{ timestamp_offset: ["+24:00"] }
-invalid_type::{ timestamp_offset: ["+00:60"] }
-
+$ion_schema_1_0
+$test::{
+  description: "timestamp_offset must be a list of timestamp offset strings",
+  invalid_types: [
+    { timestamp_offset: null },
+    { timestamp_offset: null.string },
+    { timestamp_offset: null.list },
+    { timestamp_offset: 5 },
+    { timestamp_offset: [] },
+    { timestamp_offset: [5] },
+    { timestamp_offset: [""] },
+    { timestamp_offset: ["Z"] },
+    { timestamp_offset: ["+0000"] },
+    { timestamp_offset: ["00:00"] },
+    { timestamp_offset: [" 00:00"] },
+    { timestamp_offset: ["00:00 "] },
+    { timestamp_offset: ["*00:00"] },
+    { timestamp_offset: ["+24:00"] },
+    { timestamp_offset: ["+00:60"] },
+  ]
+}

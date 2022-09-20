@@ -1,3 +1,4 @@
+$ion_schema_1_0
 schema_header::{
   imports: [
     { id: "schema/import/abcde.isl", type: a, as: a2 },
@@ -21,14 +22,12 @@ type::{
 schema_footer::{
 }
 
-valid::{
-  import_types_test:[
+$test::{
+  type: import_types_test,
+  should_accept_as_valid: [
     { a: a, positive_int: 5, b: b, posint: 6, c: c },
-  ]
-}
-
-invalid::{
-  import_types_test:[
+  ],
+  should_reject_as_invalid: [
     { a: b, positive_int:  5, b: b, posint:  6, c: c },
     { a: a, positive_int: -1, b: b, posint:  6, c: c },
     { a: a, positive_int:  5, b: a, posint:  6, c: c },
@@ -36,4 +35,3 @@ invalid::{
     { a: a, positive_int:  5, b: b, posint:  6, c: b },
   ]
 }
-

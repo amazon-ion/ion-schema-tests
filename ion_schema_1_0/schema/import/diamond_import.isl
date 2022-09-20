@@ -1,3 +1,4 @@
+$ion_schema_1_0
 schema_header::{
   imports: [
     { id: "schema/import/diamond_import_a.isl" },
@@ -13,8 +14,9 @@ type::{
 }
 schema_footer::{ }
 
-valid::{
-  diamond_import: [
+$test::{
+  type: diamond_import,
+  should_accept_as_valid: [
     {
       a: { foo: c },
       b: { bar: c },

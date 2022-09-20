@@ -1,3 +1,4 @@
+$ion_schema_1_0
 schema_header::{}
 type::{
   name: positive_int,
@@ -6,15 +7,13 @@ type::{
 }
 schema_footer::{}
 
-valid::{
-  positive_int: [
+$test::{
+  type: positive_int,
+  should_accept_as_valid: [
     3,
     100,
   ],
-}
-
-invalid::{
-  positive_int: [
+  should_reject_as_invalid: [
     0,
     -1,
     0.5,

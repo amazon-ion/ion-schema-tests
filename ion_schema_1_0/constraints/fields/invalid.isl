@@ -1,14 +1,19 @@
-invalid_type::{ fields: null }
-invalid_type::{ fields: null.int }
-invalid_type::{ fields: null.struct }
-invalid_type::{ fields: 5 }
-invalid_type::{ fields: [] }
-invalid_type::{ fields: () }
-invalid_type::{ fields: {} }
-invalid_type::{ fields: { a: null } }
-invalid_type::{ fields: { a: null.struct } }
-invalid_type::{ fields: { a: null.symbol } }
-invalid_type::{ fields: { a: 5 } }
-invalid_type::{ fields: { a: () } }
-invalid_type::{ fields: { a: [] } }
-
+$ion_schema_1_0
+$test::{
+  description: "fields must be a struct of type references",
+  invalid_types: [
+    { fields: null },
+    { fields: null.int },
+    { fields: null.struct },
+    { fields: 5 },
+    { fields: [] },
+    { fields: () },
+    { fields: {} },
+    { fields: { a: null } },
+    { fields: { a: null.struct } },
+    { fields: { a: null.symbol } },
+    { fields: { a: 5 } },
+    { fields: { a: () } },
+    { fields: { a: [] } },
+  ]
+}
