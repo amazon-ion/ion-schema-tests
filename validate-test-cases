@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# This is a MVP validation tool for ion-schema-tests
+# It is limited because:
+#   - ion-cli support for validation is incomplete
+#   - there is no convenient way to manipulate the Ion-encoded validation output (i.e. something like `iq`)
+#
+# This script uses ion-cli@0.4.1.
+# It may not work with other versions, but there it no known reason it can't be modified to use a newer version
+# of ion-cli if a new version is released with breaking changes.
+#
+# TODO: In future, we may want to consider replacing this script with e.g. a python script so that we can take
+# advantage of an Ion library that exposes more functionality than the ion-cli does.
+
+invalid_files=0
+for file in $(find . -name '*.isl' -print); do
+  # Need to add " | tail -n +2" to get rid of the "Validation result" line
+  result=$(ion beta schema validate -i "$file" -t "maybe_test_case" -d . -s ion_schema_tests.isl | tail -n +2)
+  # No CLI tool for querying Ion data, so we use grep... :/
+  if echo "$result" | grep -q 'result: "Invalid"'; then
+    echo "$file"
+    echo "$result" | ion dump # pretty-prints the Ion
+    invalid_files=$((invalid_files+1))
+  fi
+done
+
+if [[ $invalid_files -gt 0 ]]; then
+  exit 1
+fi
