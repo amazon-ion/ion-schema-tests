@@ -1,7 +1,7 @@
 $ion_schema_1_0
 // default 'occurs' behavior for each ordered_elements type is:
 //   occurs: 1
-//
+
 type::{
   name: occurs_ordered_elements,
   ordered_elements: [

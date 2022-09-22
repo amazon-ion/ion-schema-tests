@@ -3,7 +3,7 @@ $ion_schema_1_0
 // asserts that all constraints that have a type reference work when
 // the referenced type is defined later in the ISL.  in such cases,
 // resolution of the type reference is deferred until it is found.
-//
+
 schema_header::{
 }
 type::{
