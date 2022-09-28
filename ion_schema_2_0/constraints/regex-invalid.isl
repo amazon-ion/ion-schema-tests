@@ -1,14 +1,28 @@
 $ion_schema_2_0
 
 $test::{
-  description: "Regex must be a non-null string",
+  description: "Regex must be non-null",
   invalid_types: [
     { regex: null },
     { regex: null.string },
+  ]
+}
+
+$test::{
+  description: "Regex must be a string",
+  invalid_types: [
+    { regex: 'abc.*' },
     { regex: 5 },
     { regex: [] },
     { regex: () },
     { regex: {} },
+  ]
+}
+
+$test::{
+  description: "Regex must be a non-empty string",
+  invalid_types: [
+    { regex: "" },
   ]
 }
 
@@ -91,6 +105,13 @@ $test::{
     { regex: "abc{1,}+" },
     { regex: "abc{1,2}+" },
   ]
+}
+
+$test::{
+  description: "quantifier must have an explicit lower bound",
+  invalid_types:[
+    { regex: "a{,2}", }
+  ],
 }
 
 $test::{
