@@ -70,7 +70,7 @@ $test::{
 }
 
 $test::{
-  description: "reluctant quantifiers are not allowed [1]",
+  description: "reluctant quantifiers are not allowed",
   invalid_types: [
     { regex: "abc??" },
     { regex: "abc*?" },
