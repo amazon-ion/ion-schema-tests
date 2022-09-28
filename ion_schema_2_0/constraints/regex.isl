@@ -1005,19 +1005,18 @@ $test::{
 
 type::{
   name: regex_quantifier_range,
-  regex: "ab{3,6}c",
+  regex: "ab{2,4}c",
 }
 $test::{
   type: regex_quantifier_range,
   should_accept_as_valid: [
+    "abbc",
     "abbbc",
-    "abbbbc",
-    "abbbbbc",
-    "abbbbbbc",
+    "abbbc",
   ],
   should_reject_as_invalid: [
-    "abbc",
-    "abbbbbbbc",
+    "abc",
+    "abbbbbc",
   ]
 }
 
