@@ -108,9 +108,18 @@ $test::{
     { timestamp_precision: range::null.list },
     { timestamp_precision: range::[minute, -6] },
     { timestamp_precision: range::[year, month, day] },
-    { timestamp_precision: range::[exclusive::minute, exclusive::second] },
   ]
 }
+
+$test::{
+  description: "timestamp_precision range must not be non-empty",
+  isl_for_isl_can_validate: false,
+  invalid_types:[
+    { timestamp_precision: range::[exclusive::minute, exclusive::second] },
+    { timestamp_precision: range::[second, exclusive::second] },
+  ]
+}
+
 $test::{
   description: "timestamp_precision range lower bound must not be greater than upper bound",
   invalid_types: [

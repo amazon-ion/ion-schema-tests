@@ -52,29 +52,29 @@ $test::{
 }
 
 $test::{
-  description: "annotations argument must not be a sexp",
+  description: "annotations argument must be a type reference",
   invalid_types: [
+    { annotations: null },
     { annotations: (foo bar) },
-  ]
-}
-$test::{
-  description: "annotations argument must not be a string",
-  invalid_types: [
     { annotations: "foo" },
   ]
 }
+
 $test::{
   description: "annotations argument type must exist",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { annotations: some_non_existent_type },
   ]
 }
+
 $test::{
   description: "annotations argument must not be a variably occurring type reference",
   invalid_types: [
     { annotations: { occurs: optional } },
   ]
 }
+
 $test::{
   description: "annotations argument must not define a type name",
   invalid_types: [

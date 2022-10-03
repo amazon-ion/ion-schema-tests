@@ -1,6 +1,7 @@
 $ion_schema_1_0
 $test::{
   description: "schema imports must not be resolved transitively through another schema",
+  isl_for_isl_can_validate: false,
   invalid_schema: (
 
     // types 'a', 'b', 'c', 'd', and 'e' should not be recognized in this schema:

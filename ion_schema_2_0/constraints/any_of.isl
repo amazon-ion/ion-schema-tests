@@ -144,9 +144,16 @@ $test::{
     { any_of: "$int" },
     { any_of: { container_length: 5 } },
     { any_of: (int float) },
-    { any_of: [int, float, not_a_real_type] },
     { any_of: [int, float, ()] },
     { any_of: range::[1, 5] },
+  ]
+}
+
+$test::{
+  description: "any_of type references should exist",
+  isl_for_isl_can_validate: false,
+  invalid_types: [
+    { any_of: [int, float, not_a_real_type] },
   ]
 }
 

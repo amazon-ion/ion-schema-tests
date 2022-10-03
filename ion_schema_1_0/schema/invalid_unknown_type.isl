@@ -1,6 +1,7 @@
 $ion_schema_1_0
 $test::{
   description: "type reference that refers to a non-existent type",
+  isl_for_isl_can_validate: false,
   invalid_schema: (
 
     $ion_schema_1_0

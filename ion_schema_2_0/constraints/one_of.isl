@@ -152,9 +152,16 @@ $test::{
     { one_of: "$int" },
     { one_of: { container_length: 5 } },
     { one_of: (int float) },
-    { one_of: [int, float, not_a_real_type] },
     { one_of: [int, float, ()] },
     { one_of: range::[1, 5] },
+  ]
+}
+
+$test::{
+  description: "one_of type references should exist",
+  isl_for_isl_can_validate: false,
+  invalid_types: [
+    { one_of: [int, float, not_a_real_type] },
   ]
 }
 

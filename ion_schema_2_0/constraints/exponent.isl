@@ -66,13 +66,20 @@ $test::{
     { exponent: range::(1 2) },
     { exponent: range::[min, max] },
     { exponent: range::null.list },
-    { exponent: range::[2, 1] },
     { exponent: range::[1] },
     { exponent: range::[1, 2, 3] },
     { exponent: range::[1d0, 2] },
     { exponent: range::[1, 2d0] },
     { exponent: range::[1e0, 2] },
     { exponent: range::[1, 2e0] },
+  ]
+}
+
+$test::{
+  description: "exponent range must not be non-empty",
+  isl_for_isl_can_validate: false,
+  invalid_types:[
+    { exponent: range::[2, 1] },
     { exponent: range::[exclusive::1, exclusive::2] },
   ]
 }

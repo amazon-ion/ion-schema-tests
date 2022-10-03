@@ -74,16 +74,24 @@ $test::{
     { byte_length: range::(1 2) },
     { byte_length: range::[min, max] },
     { byte_length: range::null.list },
-    { byte_length: range::[2, 1] },
     { byte_length: range::[1] },
     { byte_length: range::[1, 2, 3] },
     { byte_length: range::[1d0, 2] },
     { byte_length: range::[1, 2d0] },
     { byte_length: range::[1e0, 2] },
     { byte_length: range::[1, 2e0] },
+  ]
+}
+
+$test::{
+  description: "byte_length range must not be non-empty",
+  isl_for_isl_can_validate: false,
+  invalid_types:[
+    { byte_length: range::[2, 1] },
     { byte_length: range::[exclusive::1, exclusive::2] },
   ]
 }
+
 $test::{
   description: "byte_length must be an integer or a range",
   invalid_types:[

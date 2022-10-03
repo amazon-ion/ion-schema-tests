@@ -85,16 +85,24 @@ $test::{
     { container_length: range::(1 2) },
     { container_length: range::[min, max] },
     { container_length: range::null.list },
-    { container_length: range::[2, 1] },
     { container_length: range::[1] },
     { container_length: range::[1, 2, 3] },
     { container_length: range::[1d0, 2] },
     { container_length: range::[1, 2d0] },
     { container_length: range::[1e0, 2] },
     { container_length: range::[1, 2e0] },
+  ]
+}
+
+$test::{
+  description: "container_length range must not be non-empty",
+  isl_for_isl_can_validate: false,
+  invalid_types:[
+    { container_length: range::[2, 1] },
     { container_length: range::[exclusive::1, exclusive::2] },
   ]
 }
+
 $test::{
   description: "container_length must be an integer or a range",
   invalid_types:[
@@ -110,5 +118,5 @@ $test::{
     { container_length: 3e0 },
     { container_length: {{ "1" }} },
     { container_length: {{ aGVsbG8= }} },
-    ]
+  ]
 }
