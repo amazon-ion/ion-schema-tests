@@ -132,9 +132,16 @@ $test::{
     { all_of: "$int" },
     { all_of: { container_length: 5 } },
     { all_of: (int float) },
-    { all_of: [int, float, not_a_real_type] },
     { all_of: [int, float, ()] },
     { all_of: range::[1, 5] },
+  ]
+}
+
+$test::{
+  description: "all_of type references should exist",
+  isl_for_isl_can_validate: false,
+  invalid_types: [
+    { all_of: [int, float, not_a_real_type] },
   ]
 }
 

@@ -64,16 +64,24 @@ $test::{
     { utf8_byte_length: range::(1 2) },
     { utf8_byte_length: range::[min, max] },
     { utf8_byte_length: range::null.list },
-    { utf8_byte_length: range::[2, 1] },
     { utf8_byte_length: range::[1] },
     { utf8_byte_length: range::[1, 2, 3] },
     { utf8_byte_length: range::[1d0, 2] },
     { utf8_byte_length: range::[1, 2d0] },
     { utf8_byte_length: range::[1e0, 2] },
     { utf8_byte_length: range::[1, 2e0] },
+  ]
+}
+
+$test::{
+  description: "utf8_byte_length range must not be non-empty",
+  isl_for_isl_can_validate: false,
+  invalid_types:[
+    { utf8_byte_length: range::[2, 1] },
     { utf8_byte_length: range::[exclusive::1, exclusive::2] },
   ]
 }
+
 $test::{
   description: "utf8_byte_length must be an integer or a range",
   invalid_types:[

@@ -16,14 +16,16 @@ type::{
     {
       fields: {
         description: { type: string, occurs: required },
-        invalid_schema: { type: sexp, occurs: required }
+        invalid_schema: { type: sexp, occurs: required },
+        isl_for_isl_can_validate: bool,
       },
       content: closed,
     },
     {
       fields: {
         description: { type: string, occurs: required },
-        invalid_types: { type: list, occurs: required }
+        invalid_types: { type: list, occurs: required },
+        isl_for_isl_can_validate: bool,
       },
       content: closed,
     },

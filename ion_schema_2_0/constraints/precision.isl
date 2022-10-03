@@ -75,16 +75,24 @@ $test::{
     { precision: range::(1 2) },
     { precision: range::[min, max] },
     { precision: range::null.list },
-    { precision: range::[2, 1] },
     { precision: range::[1] },
     { precision: range::[1, 2, 3] },
     { precision: range::[1d0, 2] },
     { precision: range::[1, 2d0] },
     { precision: range::[1e0, 2] },
     { precision: range::[1, 2e0] },
+  ]
+}
+
+$test::{
+  description: "precision range must not be non-empty",
+  isl_for_isl_can_validate: false,
+  invalid_types:[
+    { precision: range::[2, 1] },
     { precision: range::[exclusive::1, exclusive::2] },
   ]
 }
+
 $test::{
   description: "precision must be an integer or a range",
   invalid_types:[

@@ -1,6 +1,7 @@
 $ion_schema_1_0
 $test::{
   description: "two types in a schema cannot have the same name",
+  isl_for_isl_can_validate: false,
   invalid_schema: (
 
     $ion_schema_1_0

@@ -62,16 +62,24 @@ $test::{
     { codepoint_length: range::(1 2) },
     { codepoint_length: range::[min, max] },
     { codepoint_length: range::null.list },
-    { codepoint_length: range::[2, 1] },
     { codepoint_length: range::[1] },
     { codepoint_length: range::[1, 2, 3] },
     { codepoint_length: range::[1d0, 2] },
     { codepoint_length: range::[1, 2d0] },
     { codepoint_length: range::[1e0, 2] },
     { codepoint_length: range::[1, 2e0] },
+  ]
+}
+
+$test::{
+  description: "codepoint_length range must not be non-empty",
+  isl_for_isl_can_validate: false,
+  invalid_types:[
+    { codepoint_length: range::[2, 1] },
     { codepoint_length: range::[exclusive::1, exclusive::2] },
   ]
 }
+
 $test::{
   description: "codepoint_length must be an integer or a range",
   invalid_types:[

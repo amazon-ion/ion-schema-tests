@@ -364,12 +364,19 @@ $test::{
 $test::{
   description: "valid_values ranges must be valid number or timestamp ranges",
   invalid_types: [
-    { valid_values: range::[ 1, 0 ] },
-    { valid_values: range::[ 0.00000000001, 0 ] },
     { valid_values: range::[ min, max ] },
     { valid_values: range::[ 1, exclusive::max ] },
     { valid_values: range::[ exclusive::min, 100 ] },
     { valid_values: range::[ 2000T, 3000.0] },
+  ]
+}
+
+$test::{
+  description: "valid_values ranges must not be non-empty",
+  isl_for_isl_can_validate: false,
+  invalid_types:[
+    { valid_values: range::[ 1, 0 ] },
+    { valid_values: range::[ 0.00000000001, 0 ] },
     { valid_values: range::[ exclusive::1, exclusive::1 ] },
   ]
 }
