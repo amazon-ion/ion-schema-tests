@@ -7,7 +7,7 @@ There are three explicit and two implicit types of test cases.
 
 1. `valid_schema` (implicit) – asserts that a schema document is valid.
     Every test file should be a valid schema, so this is implied for every schema/file that is present in the test suite.
-2. `invalid_schema` – asserts that a schema document is invalid.
+2. `invalid_schemas` – asserts that each schema document in a given list of schema documents is invalid.
 3. `valid_type` – (implicit) asserts that a given type definition is valid.
     Every top-level type in the test suite loaded and implicitly tested for validity. 
 4. `invalid_types` – asserts that each type in a given list of type definitions is invalid.
@@ -58,8 +58,8 @@ $test::{
 }
 ```
 
-#### `invalid_schema` Tests
-A test case that checks that a schema document is correctly recognized as invalid.
+#### `invalid_schemas` Tests
+A test case that checks that the given schema documents are correctly recognized as invalid.
 ```ion
 $test::{
   // A useful description of the test to aid with debugging, understanding the spec, etc.
@@ -70,17 +70,29 @@ $test::{
   // If the field is not present, it is assumed to be "true".
   isl_for_isl_can_validate: false,
 
-  // The actual schema, embedded in a s-expression. Test runners must convert this s-expression to a document.
-  invalid_schema:(
-    $ion_schema_2_0
-    $ion_schema_1_0
-    schema_header::{}
-    type::{
-      name: foo,
-      type: int,
-    }
-    schema_footer::{}
-  )
+  // The actual schemas, embedded in a s-expression. Test runners must convert these s-expressions to a document.
+  invalid_schemas: [
+    (
+      $ion_schema_2_0
+      $ion_schema_1_0
+      schema_header::{}
+      type::{
+        name: foo,
+        type: int,
+      }
+      schema_footer::{}
+    ),
+    (
+      $ion_schema_2_0
+      $ion_schema_2_0
+      schema_header::{}
+      type::{
+        name: foo,
+        type: int,
+      }
+      schema_footer::{}
+    ),
+  ]
 }
 ```
 
@@ -139,7 +151,7 @@ type::{
     {
       fields: closed::{
         description: { type: string, occurs: required },
-        invalid_schema: { type: sexp, occurs: required },
+        invalid_schemas: { type: list, occurs: required, element: sexp },
         isl_for_isl_can_validate: bool,
       }
     },

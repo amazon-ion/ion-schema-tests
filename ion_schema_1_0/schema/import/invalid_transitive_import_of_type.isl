@@ -2,7 +2,7 @@ $ion_schema_1_0
 $test::{
   description: "type imports must not be resolved transitively through another schema",
   isl_for_isl_can_validate: false,
-  invalid_schema: (
+  invalid_schemas: [ (
 
     // type 'positive_int' should not be recognized in this schema:
     $ion_schema_1_0
@@ -17,5 +17,5 @@ $test::{
     }
     schema_footer::{}
 
-  )
+  ) ]
 }

@@ -2,7 +2,7 @@ $ion_schema_1_0
 $test::{
   description: "importing two different schemas with conflicting type names should result in an error",
   isl_for_isl_can_validate: false,
-  invalid_schema: (
+  invalid_schemas: [ (
 
     $ion_schema_1_0
     schema_header::{
@@ -13,5 +13,5 @@ $test::{
     }
     schema_footer::{}
 
-  )
+  ) ]
 }

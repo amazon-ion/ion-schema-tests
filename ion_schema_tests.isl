@@ -16,7 +16,7 @@ type::{
     {
       fields: {
         description: { type: string, occurs: required },
-        invalid_schema: { type: sexp, occurs: required },
+        invalid_schemas: { type: list, occurs: required, element: sexp },
         isl_for_isl_can_validate: bool,
       },
       content: closed,
