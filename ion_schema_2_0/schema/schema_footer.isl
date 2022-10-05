@@ -42,7 +42,7 @@ $test::{
 }
 
 $test::{
-  description: "Schema footer must not be present if header is not present.",
+  description: "Schema footer must come after schema header.",
   invalid_schemas: [
     (
       $ion_schema_2_0
