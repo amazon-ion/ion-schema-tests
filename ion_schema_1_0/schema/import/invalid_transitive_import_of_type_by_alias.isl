@@ -2,7 +2,7 @@ $ion_schema_1_0
 $test::{
   description: "aliased type imports must not be importable by another schema",
   isl_for_isl_can_validate: false,
-  invalid_schema: (
+  invalid_schemas: [ (
 
     // type 'positive_int_1' should not be recognized in this schema:
     $ion_schema_1_0
@@ -17,6 +17,6 @@ $test::{
     }
     schema_footer::{}
 
-  )
+  ) ]
 }
 
