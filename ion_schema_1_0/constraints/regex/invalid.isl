@@ -13,6 +13,7 @@ $test::{
 
 $test::{
   description: "regex - backreferences are not allowed",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { regex: "\\1" }
   ]
@@ -20,6 +21,7 @@ $test::{
 
 $test::{
   description: "regex - POSIX character classes are not allowed",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { regex: "\\p{Lower}" }
   ]
@@ -27,6 +29,7 @@ $test::{
 
 $test::{
   description: "regex - invalid escaped character",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { regex: "\\A" },
     { regex: "\\b" },
@@ -48,6 +51,7 @@ $test::{
 
 $test::{
   description: "regex - invalid character classes/ranges",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { regex: "[a-d[m-p]]" },
     { regex: "[a-z&&[def]]" },
@@ -57,6 +61,7 @@ $test::{
 
 $test::{
   description: "regex - reluctant quantifiers are not allowed",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { regex: "abc??" },
     { regex: "abc*?" },
@@ -69,6 +74,7 @@ $test::{
 
 $test::{
   description: "regex - possessive quantifiers are not allowed",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { regex: "abc?+" },
     { regex: "abc*+" },
@@ -81,6 +87,7 @@ $test::{
 
 $test::{
   description: "regex - special constructs with prefix '(?' are not allowed",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { regex: "(?" }
   ]

@@ -10,12 +10,19 @@ $test::{
     { utf8_byte_length: 5.2 },
     { utf8_byte_length: [0, 5] },
     { utf8_byte_length: range::[min, max] },
-    { utf8_byte_length: range::[1, 0] },
     { utf8_byte_length: range::[0] },
     { utf8_byte_length: range::[0, 1, 2] },
     { utf8_byte_length: range::[0d0, 1] },
     { utf8_byte_length: range::[0e0, 1] },
     { utf8_byte_length: range::[0, 1d0] },
     { utf8_byte_length: range::[0, 1e0] },
+  ]
+}
+
+$test::{
+  description: "utf8_byte_length range must be a valid, satisfiable range",
+  isl_for_isl_can_validate: false,
+  invalid_types: [
+    { utf8_byte_length: range::[1, 0] },
   ]
 }

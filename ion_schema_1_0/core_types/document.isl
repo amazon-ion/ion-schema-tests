@@ -23,6 +23,7 @@ $test::{
 
 $test::{
   description: "document cannot be nullable",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { type: nullable::document },
     { type: nullable::{ type: document } }
