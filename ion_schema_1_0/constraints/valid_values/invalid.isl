@@ -1,6 +1,6 @@
 $ion_schema_1_0
 $test::{
-  description: "valid_values must ba a list or range",
+  description: "valid_values must be a list or range",
   invalid_types: [
     { valid_values: null },
     { valid_values: null.int },
@@ -20,9 +20,17 @@ $test::{
 
 $test::{
   description: "valid_values ranges must be valid number or timestamp ranges",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { valid_values: range::[ 1, 0 ] },
     { valid_values: range::[ 0.00000000001, 0 ] },
+  ]
+}
+
+$test::{
+  description: "valid_values ranges must not have both min and max",
+  invalid_types: [
     { valid_values: range::[ min, max ] },
+    { valid_values: [range::[ min, max ]] },
   ]
 }

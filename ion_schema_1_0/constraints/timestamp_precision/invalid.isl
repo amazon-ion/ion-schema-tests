@@ -22,6 +22,7 @@ $test::{
 
 $test::{
   description: "timestamp_precision range - lower > upper",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { timestamp_precision: range::[max, min] },
     { timestamp_precision: range::[year, min] },
@@ -38,6 +39,7 @@ $test::{
 
 $test::{
   description: "timestamp_precision range - empty range",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { timestamp_precision: range::[exclusive::day, exclusive::day] }
   ]

@@ -13,18 +13,27 @@ $test::{
     { occurs: {} },
     { occurs: [0, 1] },
     { occurs: range::[min, max] },
-    { occurs: range::[1, 0] },
     { occurs: range::[1] },
     { occurs: range::[0, 1, 2] },
     { occurs: range::[0d0, 1] },
     { occurs: range::[0e0, 1] },
     { occurs: range::[0, 1d0] },
     { occurs: range::[0, 1e0] },
+  ]
+}
+
+$test::{
+  description: "occurs range must be a valid, satisfiable range",
+  isl_for_isl_can_validate: false,
+  invalid_types: [
+    { occurs: range::[1, 0] },
     { occurs: range::[exclusive::1, exclusive::2] },
   ]
 }
+
 $test::{
   description: "occurs for a field must be a positive integer or a non-empty, non-negative integer range",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { fields: { a: { occurs: 0 } } },
     { fields: { a: { occurs: range::[0, 0] } } },

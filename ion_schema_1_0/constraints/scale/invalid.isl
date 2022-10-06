@@ -10,12 +10,19 @@ $test::{
     { scale: 5.2 },
     { scale: [0, 5] },
     { scale: range::[min, max] },
-    { scale: range::[1, 0] },
     { scale: range::[1] },
     { scale: range::[0, 1, 2] },
     { scale: range::[0d0, 1] },
     { scale: range::[0e0, 1] },
     { scale: range::[0, 1d0] },
     { scale: range::[0, 1e0] },
+  ]
+}
+
+$test::{
+  description: "scale range must be a valid, satisfiable range",
+  isl_for_isl_can_validate: false,
+  invalid_types: [
+    { scale: range::[1, 0] },
   ]
 }
