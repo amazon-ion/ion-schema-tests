@@ -102,7 +102,7 @@ A test case that checks that the given schema documents are correctly recognized
 ```ion
 $test::{
   // A useful description of the test to aid with debugging, understanding the spec, etc.
-  description: "Unreserved symbols should always be permitted as user content field names in a schema header",
+  description: "Unreserved symbols should always be permitted as open content field names in a schema header",
 
   // Unlike `invalid_schemas` test cases, ISL for ISL cannot be skipped because ISL for ISL must always accept valid schemas.
 
