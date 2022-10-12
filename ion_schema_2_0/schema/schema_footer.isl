@@ -89,7 +89,7 @@ $test::{
       schema_footer::schema_header::{}
     ),
     (
-    $ion_schema_2_0
+      $ion_schema_2_0
       schema_header::{}
       type::{
         name: foo,
@@ -143,7 +143,7 @@ $test::{
       schema_footer::()
     ),
     (
-    $ion_schema_2_0
+      $ion_schema_2_0
       schema_header::{}
       type::{
         name: foo,

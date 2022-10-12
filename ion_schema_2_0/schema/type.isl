@@ -83,7 +83,7 @@ $test::{
       type::{ name: "foo" }
     ),
     (
-    $ion_schema_2_0
+      $ion_schema_2_0
       type::{ name: null }
     ),
     (
