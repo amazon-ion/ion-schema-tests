@@ -3,15 +3,16 @@
 This collection of files represents a test suite for implementations of the [Ion Schema Specifications](https://amzn.github.io/ion-schema/docs).
 This file describes how the tests are defined.
 
-There are three explicit and two implicit types of test cases.
+There are four explicit and two implicit types of test cases.
 
 1. `valid_schema` (implicit) – asserts that a schema document is valid.
-    Every test file should be a valid schema, so this is implied for every schema/file that is present in the test suite.
-2. `invalid_schemas` – asserts that each schema document in a given list of schema documents is invalid.
-3. `valid_type` – (implicit) asserts that a given type definition is valid.
-    Every top-level type in the test suite loaded and implicitly tested for validity. 
-4. `invalid_types` – asserts that each type in a given list of type definitions is invalid.
-5. `type`/`should_accept_as_valid`/`should_reject_as_invalid` – tests whether values match or do not match a given type.
+   Every test file should be a valid schema, so this is implied for every schema/file that is present in the test suite.
+2. `valid_schemas` – asserts that each schema document in a given list of schema documents is valid.
+3. `invalid_schemas` – asserts that each schema document in a given list of schema documents is invalid.
+4. `valid_type` – (implicit) asserts that a given type definition is valid.
+   Every top-level type in the test suite loaded and implicitly tested for validity. 
+5. `invalid_types` – asserts that each type in a given list of type definitions is invalid.
+6. `type`/`should_accept_as_valid`/`should_reject_as_invalid` – tests whether values match or do not match a given type.
 
 #### Implicit Tests
 Every `ion-schema-tests` test file should be an Ion Schema.
@@ -96,6 +97,31 @@ $test::{
 }
 ```
 
+#### `valid_schemas` Tests
+A test case that checks that the given schema documents are correctly recognized as valid.
+```ion
+$test::{
+  // A useful description of the test to aid with debugging, understanding the spec, etc.
+  description: "Unreserved symbols should always be permitted as user content field names in a schema header",
+
+  // Unlike `invalid_schemas` test cases, ISL for ISL cannot be skipped because ISL for ISL must always accept valid schemas.
+
+  // The actual schemas, embedded in a s-expression. Test runners must convert these s-expressions to a document.
+  valid_schemas: [
+    (
+      $ion_schema_2_0
+      schema_header::{ $lower_snake_case_with_a_leading_dollar_sign: 1 }
+      schema_footer::{} 
+    ),
+    (
+      $ion_schema_2_0
+      schema_header::{ _lower_snake_case_with_a_leading_underscore: 2 }
+      schema_footer::{}
+    ),
+  ],
+}
+```
+
 #### `invalid_types` Tests
 A parameterized test case that checks that multiple type definitions are correctly recognized as invalid.
 Test runner implementations should append the zero-based index of the test case to the test description.
@@ -153,6 +179,12 @@ type::{
         description: { type: string, occurs: required },
         invalid_schemas: { type: list, occurs: required, element: sexp },
         isl_for_isl_can_validate: bool,
+      }
+    },
+    {
+      fields: closed::{
+        description: { type: string, occurs: required },
+        valid_schemas: { type: list, occurs: required, element: sexp },
       }
     },
     {
