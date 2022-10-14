@@ -96,3 +96,21 @@ $test::{
     ),
   ],
 }
+
+$test::{
+  description: "Type names may not be repeated in a single schema document",
+  isl_for_isl_can_validate: false,
+  invalid_schemas: [
+    (
+      $ion_schema_2_0
+      type::{ name: foo, type: int }
+      type::{ name: foo, type: string }
+    ),
+    // Even when the types are identical, it's still invalid
+    (
+      $ion_schema_2_0
+      type::{ name: foo }
+      type::{ name: foo }
+    ),
+  ],
+}
