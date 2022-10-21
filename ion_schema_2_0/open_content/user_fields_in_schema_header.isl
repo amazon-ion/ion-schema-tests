@@ -108,22 +108,22 @@ $test::{
   valid_schemas:[
     (
       $ion_schema_2_0
-      schema_header::{ user_fields: { schema_header: [$ion_schema] }, $ion_schema: 1 }
+      schema_header::{ user_reserved_fields: { schema_header: [$ion_schema] }, $ion_schema: 1 }
       schema_footer::{}
     ),
     (
       $ion_schema_2_0
-      schema_header::{ user_fields: { schema_header: [$ion_schema_abc] }, $ion_schema_abc: 1 }
+      schema_header::{ user_reserved_fields: { schema_header: [$ion_schema_abc] }, $ion_schema_abc: 1 }
       schema_footer::{}
     ),
     (
       $ion_schema_2_0
-      schema_header::{ user_fields: { schema_header: [$ion_schema_2_0] }, $ion_schema_2_0: 1 }
+      schema_header::{ user_reserved_fields: { schema_header: [$ion_schema_2_0] }, $ion_schema_2_0: 1 }
       schema_footer::{}
     ),
     (
       $ion_schema_2_0
-      schema_header::{ user_fields: { schema_header: [lower_snake_case] }, lower_snake_case: 1 }
+      schema_header::{ user_reserved_fields: { schema_header: [lower_snake_case] }, lower_snake_case: 1 }
       schema_footer::{}
     ),
   ]

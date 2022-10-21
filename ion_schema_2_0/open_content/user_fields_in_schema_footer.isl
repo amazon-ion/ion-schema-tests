@@ -108,22 +108,22 @@ $test::{
   valid_schemas:[
     (
       $ion_schema_2_0
-      schema_header::{ user_fields: { schema_footer: [$ion_schema] } }
+      schema_header::{ user_reserved_fields: { schema_footer: [$ion_schema] } }
       schema_footer::{ $ion_schema: 1 }
     ),
     (
       $ion_schema_2_0
-      schema_header::{ user_fields: { schema_footer: [$ion_schema_abc] } }
+      schema_header::{ user_reserved_fields: { schema_footer: [$ion_schema_abc] } }
       schema_footer::{ $ion_schema_abc: 1 }
     ),
     (
       $ion_schema_2_0
-      schema_header::{ user_fields: { schema_footer: [$ion_schema_2_0] } }
+      schema_header::{ user_reserved_fields: { schema_footer: [$ion_schema_2_0] } }
       schema_footer::{ $ion_schema_2_0: 1 }
     ),
     (
       $ion_schema_2_0
-      schema_header::{ user_fields: { schema_footer: [lower_snake_case] } }
+      schema_header::{ user_reserved_fields: { schema_footer: [lower_snake_case] } }
       schema_footer::{ lower_snake_case: 1 }
     ),
   ]

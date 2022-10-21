@@ -131,31 +131,31 @@ $test::{
   valid_schemas:[
     (
       $ion_schema_2_0
-      schema_header::{ user_fields: { type: [$ion_schema] } }
+      schema_header::{ user_reserved_fields: { type: [$ion_schema] } }
       type::{ name: type_with_legal_field_name, $ion_schema: 1 }
       schema_footer::{}
     ),
     (
       $ion_schema_2_0
-      schema_header::{ user_fields: { type: [$ion_schema_abc] } }
+      schema_header::{ user_reserved_fields: { type: [$ion_schema_abc] } }
       type::{ name: type_with_legal_field_name, $ion_schema_abc: 1 }
       schema_footer::{}
     ),
     (
       $ion_schema_2_0
-      schema_header::{ user_fields: { type: [$ion_schema_2_0] } }
+      schema_header::{ user_reserved_fields: { type: [$ion_schema_2_0] } }
       type::{ name: type_with_legal_field_name, $ion_schema_2_0: 1 }
       schema_footer::{}
     ),
     (
       $ion_schema_2_0
-      schema_header::{ user_fields: { type: [lower_snake_case] } }
+      schema_header::{ user_reserved_fields: { type: [lower_snake_case] } }
       type::{ name: type_with_legal_field_name, lower_snake_case: 1 }
       schema_footer::{}
     ),
     (
       $ion_schema_2_0
-      schema_header::{ user_fields: { type: [lower_snake_case] } }
+      schema_header::{ user_reserved_fields: { type: [lower_snake_case] } }
       type::{
         name: type_with_legal_field_name_in_nested_definition,
         element: { lower_snake_case: 1 },
@@ -164,7 +164,7 @@ $test::{
     ),
     (
       $ion_schema_2_0
-      schema_header::{ user_fields: { type: [lower_snake_case] } }
+      schema_header::{ user_reserved_fields: { type: [lower_snake_case] } }
       type::{
         name: type_with_legal_field_name_in_variably_occuring_type_definition,
         fields: {
