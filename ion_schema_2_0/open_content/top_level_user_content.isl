@@ -104,7 +104,7 @@ $test::{
     ( $ion_schema_2_0 timestamp_offset ),
     ( $ion_schema_2_0 timestamp_precision ),
     ( $ion_schema_2_0 type ),
-    ( $ion_schema_2_0 user_fields ),
+    ( $ion_schema_2_0 user_reserved_fields ),
     ( $ion_schema_2_0 utf8_byte_length ),
     ( $ion_schema_2_0 valid_values ),
   ]
