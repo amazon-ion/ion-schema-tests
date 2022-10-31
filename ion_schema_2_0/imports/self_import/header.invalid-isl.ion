@@ -1,0 +1,15 @@
+$ion_schema_2_0
+
+schema_header::{
+  imports: [
+    { id: "imports/self_import/header.invalid-isl.ion" }
+  ]
+}
+
+type::{
+  name: short_string,
+  type: string,
+  codepoint_length: range::[0, 9],
+}
+
+schema_footer::{}
