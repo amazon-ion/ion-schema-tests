@@ -138,7 +138,7 @@ $test::{
 }
 
 $test::{
-  description: "A schema should not be able to reference an aliased type by it's original name",
+  description: "A schema should not be able to reference an aliased type by its original name",
   invalid_schemas: [
     (
       $ion_schema_2_0
