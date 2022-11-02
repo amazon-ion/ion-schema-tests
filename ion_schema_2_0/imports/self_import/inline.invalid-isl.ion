@@ -1,0 +1,12 @@
+$ion_schema_2_0
+
+type::{
+  name: short_string,
+  type: string,
+  codepoint_length: range::[0, 9],
+}
+
+type::{
+  name: another_short_string,
+  type: { id: "imports/self_import/inline.invalid-isl.ion", type: short_string }
+}
