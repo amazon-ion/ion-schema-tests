@@ -1,5 +1,13 @@
 $ion_schema_2_0
 
+/*
+Import dependency graph (higher node imports lower node)
+        (A)
+       /   \
+     (B)   (C)
+       \   /
+        (D)
+*/
 schema_header::{
   imports: [
     { id: "imports/diamond/header_import_b.isl" },
@@ -35,5 +43,48 @@ $test::{
   description: "no indirectly imported types should be available in this schema's scope",
   invalid_types: [
     { type: d_type, },
+  ]
+}
+
+$test::{
+  description: "it should still be possible to directly import a type that is transitively imported",
+  valid_schemas: [
+    (
+      $ion_schema_2_0
+      schema_header::{
+        imports: [
+          { id: "imports/diamond/header_import_b.isl" },
+          { id: "imports/diamond/header_import_c.isl" },
+          { id: "imports/diamond/header_import_d.isl" },
+        ]
+      }
+      type::{
+        name: bcd,
+        ordered_elements: [
+          b_type,
+          c_type,
+          d_type,
+        ]
+      }
+      schema_footer::{}
+    ),
+    (
+      $ion_schema_2_0
+      schema_header::{
+        imports: [
+          { id: "imports/diamond/header_import_b.isl" },
+          { id: "imports/diamond/header_import_c.isl" },
+        ]
+      }
+      type::{
+        name: bcd,
+        ordered_elements: [
+          b_type,
+          c_type,
+          { id: "imports/diamond/header_import_d.isl", type: d_type },
+        ]
+      }
+      schema_footer::{}
+    )
   ]
 }

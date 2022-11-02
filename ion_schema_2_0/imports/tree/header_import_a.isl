@@ -1,5 +1,13 @@
 $ion_schema_2_0
 
+/*
+Import dependency graph (higher node imports lower node)
+        (A)
+       /   \
+     (B)   (C)
+          /  \
+        (D)  (E)
+*/
 schema_header::{
   imports: [
     { id: "imports/tree/header_import_b.isl" },
@@ -24,6 +32,10 @@ $test::{
       c: c::{ d: d, e: e }
     },
   ],
+  should_reject_as_invalid: [
+    a::{ c: {} },
+    a::{ c: c },
+  ]
 }
 
 schema_footer::{}

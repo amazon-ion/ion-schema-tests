@@ -108,13 +108,6 @@ $test::{
       $ion_schema_2_0
       type::{
         name: foo,
-        type: { id: "util.isl", type: positive_int, type: positive_int }
-      }
-    ),
-    (
-      $ion_schema_2_0
-      type::{
-        name: foo,
         type: { id: "util.isl", as: bar  }
       }
     ),
