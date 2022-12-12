@@ -1,12 +1,12 @@
 $ion_schema_2_0
 
 type::{
-  name: 'not: any',
+  name: not_named_type,
   not: any,
 }
 
 $test::{
-  type: 'not: any',
+  type: not_named_type,
   should_accept_as_valid: [
     null,
     null.bool,

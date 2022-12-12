@@ -1,12 +1,12 @@
 $ion_schema_2_0
 
 type::{
-  name: 'byte_length: 5',
+  name: byte_length_with_single_value,
   byte_length: 5,
 }
 
 $test::{
-  type: 'byte_length: 5',
+  type: byte_length_with_single_value,
   should_accept_as_valid: [
     {{"12345"}},
     {{ aGVsbG8= }},
@@ -25,12 +25,12 @@ $test::{
 }
 
 type::{
-  name: 'byte_length: range::[5, 10]',
+  name: byte_length_with_range,
   byte_length: range::[5, 10],
 }
 
 $test::{
-  type: 'byte_length: range::[5, 10]',
+  type: byte_length_with_range,
   should_accept_as_valid:[
     {{"12345"}},
     {{"1234567890"}},
@@ -84,7 +84,7 @@ $test::{
 }
 
 $test::{
-  description: "byte_length range must not be non-empty",
+  description: "byte_length range must be satisfiable",
   isl_for_isl_can_validate: false,
   invalid_types:[
     { byte_length: range::[2, 1] },

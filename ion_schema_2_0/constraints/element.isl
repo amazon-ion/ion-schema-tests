@@ -1,12 +1,12 @@
 $ion_schema_2_0
 
 type::{
-  name: 'element: int',
+  name: element_with_named_type,
   element: int,
 }
 
 $test::{
-  type: 'element: int',
+  type: element_with_named_type,
   should_accept_as_valid: [
     [],
     [1],
@@ -37,12 +37,12 @@ $test::{
 }
 
 type::{
-  name: 'element: $null_or::number',
+  name: element_with_nullable_type,
   element: $null_or::number,
 }
 
 $test::{
-  type: 'element: $null_or::number',
+  type: element_with_nullable_type,
   should_accept_as_valid: [
     {},
     [1, 2.0, 3e2, nan],
@@ -60,12 +60,12 @@ $test::{
 }
 
 type::{
-  name: 'element: distinct::$int',
+  name: element_with_distinct_modifier,
   element: distinct::$int,
 }
 
 $test::{
-  type: 'element: distinct::$int',
+  type: element_with_distinct_modifier,
   should_accept_as_valid: [
     [],
     [1],
@@ -94,12 +94,12 @@ $test::{
 }
 
 type::{
-  name: 'element: nothing',
+  name: element_nothing,
   element: nothing,
 }
 
 $test::{
-  type: 'element: nothing',
+  type: element_nothing,
   should_accept_as_valid: [
     {},
     [],

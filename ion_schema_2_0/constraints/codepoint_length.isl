@@ -1,12 +1,12 @@
 $ion_schema_2_0
 
 type::{
-  name: 'codepoint_length: 5',
+  name: codepoint_length_with_single_value,
   codepoint_length: 5,
 }
 
 $test::{
-  type: 'codepoint_length: 5',
+  type: codepoint_length_with_single_value,
   should_accept_as_valid: [
     '12345',
     "12345",
@@ -20,12 +20,12 @@ $test::{
 }
 
 type::{
-  name: 'codepoint_length: range::[5, 10]',
+  name: codepoint_length_with_range,
   codepoint_length: range::[5, 10],
 }
 
 $test::{
-  type: 'codepoint_length: range::[5, 10]',
+  type: codepoint_length_with_range,
   should_accept_as_valid:[
     '12345',
     "1234567890",
@@ -72,7 +72,7 @@ $test::{
 }
 
 $test::{
-  description: "codepoint_length range must not be non-empty",
+  description: "codepoint_length range must be satisfiable",
   isl_for_isl_can_validate: false,
   invalid_types:[
     { codepoint_length: range::[2, 1] },

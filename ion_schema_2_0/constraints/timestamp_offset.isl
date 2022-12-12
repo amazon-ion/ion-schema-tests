@@ -1,12 +1,12 @@
 $ion_schema_2_0
 
 type::{
-  name: 'timestamp_offset: ["+02:43"]',
+  name: timestamp_offset_with_non_zero_offset,
   timestamp_offset: ["+02:43"],
 }
 
 $test::{
-  type: 'timestamp_offset: ["+02:43"]',
+  type: timestamp_offset_with_non_zero_offset,
   should_accept_as_valid:[
     2000-01-01T00:00+02:43,
     2000-01-01T00:00:00+02:43,
@@ -44,12 +44,12 @@ $test::{
 }
 
 type::{
-  name: 'timestamp_offset: ["-00:00"]',
+  name: timestamp_offset_unknown_offset,
   timestamp_offset: ["-00:00"],
 }
 
 $test::{
-  type: 'timestamp_offset: ["-00:00"]',
+  type: timestamp_offset_unknown_offset,
   should_accept_as_valid:[
     2000T,
     2001-02-03T,
@@ -65,12 +65,12 @@ $test::{
 }
 
 type::{
-  name: 'timestamp_offset: ["+00:00"]',
+  name: timestamp_offset_utc_offset,
   timestamp_offset: ["+00:00"],
 }
 
 $test::{
-  type: 'timestamp_offset: ["+00:00"]',
+  type: timestamp_offset_utc_offset,
   should_accept_as_valid:[
     2000-01-01T00:00+00:00,
     2000-01-01T12:34:56.789Z,
@@ -87,12 +87,12 @@ $test::{
 }
 
 type::{
-  name: 'timestamp_offset: ["+01:23", "-02:34"]',
+  name: timestamp_offset_with_multiple_different_offsets,
   timestamp_offset: ["+01:23", "-02:34"],
 }
 
 $test::{
-  type: 'timestamp_offset: ["+01:23", "-02:34"]',
+  type: timestamp_offset_with_multiple_different_offsets,
   should_accept_as_valid:[
     2000-01-01T00:00+01:23,
     2000-01-01T12:34:56.789-02:34,

@@ -1,12 +1,12 @@
 $ion_schema_2_0
 
 type::{
-  name: 'container_length: 5',
+  name: container_length_with_single_value,
   container_length: 5,
 }
 
 $test::{
-  type: 'container_length: 5',
+  type: container_length_with_single_value,
   should_accept_as_valid: [
     [1, 2, 3, 4, 5],
     (a b c d e),
@@ -30,12 +30,12 @@ $test::{
 }
 
 type::{
-  name: 'container_length: range::[5, 10]',
+  name: container_length_with_range,
   container_length: range::[5, 10],
 }
 
 $test::{
-  type: 'container_length: range::[5, 10]',
+  type: container_length_with_range,
   should_accept_as_valid:[
     [1, 2, 3, 4, 5],
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
@@ -95,7 +95,7 @@ $test::{
 }
 
 $test::{
-  description: "container_length range must not be non-empty",
+  description: "container_length range must be satisfiable",
   isl_for_isl_can_validate: false,
   invalid_types:[
     { container_length: range::[2, 1] },

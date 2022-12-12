@@ -1,12 +1,12 @@
 $ion_schema_2_0
 
 type::{
-  name: 'timestamp_precision: month',
+  name: timestamp_precision_with_single_value,
   timestamp_precision: month,
 }
 
 $test::{
-  type: 'timestamp_precision: month',
+  type: timestamp_precision_with_single_value,
   should_accept_as_valid:[
     2022-01T,
     1999-12T,
@@ -22,12 +22,12 @@ $test::{
 }
 
 type::{
-  name: 'timestamp_precision: range::[day, second]',
+  name: timestamp_precision_with_range,
   timestamp_precision: range::[day, second],
 }
 
 $test::{
-  type: 'timestamp_precision: range::[day, second]',
+  type: timestamp_precision_with_range,
   should_accept_as_valid:[
     2022-03-04T05:06:07Z,
     2022-03-04T05:06:07-00:00,
@@ -45,12 +45,12 @@ $test::{
 }
 
 type::{
-  name: 'timestamp_precision: range::[exclusive::second, exclusive::millisecond]',
+  name: timestamp_precision_with_range_exclusively_between_two_consecutive_named_precisions,
   timestamp_precision: range::[exclusive::second, exclusive::millisecond],
 }
 
 $test::{
-  type: 'timestamp_precision: range::[exclusive::second, exclusive::millisecond]',
+  type: timestamp_precision_with_range_exclusively_between_two_consecutive_named_precisions,
   should_accept_as_valid:[
     2022-03-04T05:06:07.0Z,
     2022-03-04T05:06:07.00Z,
@@ -72,12 +72,12 @@ $test::{
 }
 
 type::{
-  name: 'timestamp_precision: range::[exclusive::nanosecond, max]',
+  name: timestamp_precision_with_range_exclusively_greater_than_nanosecond,
   timestamp_precision: range::[exclusive::nanosecond, max],
 }
 
 $test::{
-  type: 'timestamp_precision: range::[exclusive::nanosecond, max]',
+  type: timestamp_precision_with_range_exclusively_greater_than_nanosecond,
   should_accept_as_valid:[
     2022-03-04T05:06:07.0000000000Z,
     2022-03-04T05:06:07.00000000000Z,
@@ -112,7 +112,7 @@ $test::{
 }
 
 $test::{
-  description: "timestamp_precision range must not be non-empty",
+  description: "timestamp_precision range must be satisfiable",
   isl_for_isl_can_validate: false,
   invalid_types:[
     { timestamp_precision: range::[exclusive::minute, exclusive::second] },

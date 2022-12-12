@@ -6,12 +6,12 @@ type::{
 }
 
 type::{
-  name: 'annotations: { element: only_vowels }',
+  name: annotations_with_regex,
   annotations: { element: only_vowels },
 }
 
 $test::{
-  type: 'annotations: { element: only_vowels }',
+  type: annotations_with_regex,
   should_accept_as_valid: [
     0,
     ''::0,
@@ -31,12 +31,12 @@ $test::{
 
 type::{
   // Important use case—exactly N annotations allowed
-  name: 'annotations: { container_length: 1 }',
+  name: exactly_n_annotations_allowed,
   annotations: { container_length: 1 },
 }
 
 $test::{
-  type: 'annotations: { container_length: 1 }',
+  type: exactly_n_annotations_allowed,
   should_accept_as_valid: [
     a::0,
     $b::1,
