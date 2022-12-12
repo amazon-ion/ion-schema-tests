@@ -1,12 +1,12 @@
 $ion_schema_2_0
 
 type::{
-  name: 'exponent: -2',
+  name: exponent_with_single_value,
   exponent: -2,
 }
 
 $test::{
-  type: 'exponent: -2',
+  type: exponent_with_single_value,
   should_accept_as_valid:[
     0.42,
     4.2d-1,
@@ -26,12 +26,12 @@ $test::{
 }
 
 type::{
-  name: 'exponent: range::[-4, 2]',
+  name: exponent_with_range,
   exponent: range::[-4, 2],
 }
 
 $test::{
-  type: 'exponent: range::[-4, 2]',
+  type: exponent_with_range,
   should_accept_as_valid:[
     42d2,
     42d1,
@@ -76,7 +76,7 @@ $test::{
 }
 
 $test::{
-  description: "exponent range must not be non-empty",
+  description: "exponent range must be satisfiable",
   isl_for_isl_can_validate: false,
   invalid_types:[
     { exponent: range::[2, 1] },

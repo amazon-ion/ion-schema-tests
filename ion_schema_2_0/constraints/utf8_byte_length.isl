@@ -1,12 +1,12 @@
 $ion_schema_2_0
 
 type::{
-  name: 'utf8_byte_length: 5',
+  name: utf8_byte_length_with_single_value,
   utf8_byte_length: 5,
 }
 
 $test::{
-  type: 'utf8_byte_length: 5',
+  type: utf8_byte_length_with_single_value,
   should_accept_as_valid: [
     '12345',
     "12345",
@@ -21,12 +21,12 @@ $test::{
 }
 
 type::{
-  name: 'utf8_byte_length: range::[5, 10]',
+  name: utf8_byte_length_with_range,
   utf8_byte_length: range::[5, 10],
 }
 
 $test::{
-  type: 'utf8_byte_length: range::[5, 10]',
+  type: utf8_byte_length_with_range,
   should_accept_as_valid:[
     '12345',
     "1234567890",
@@ -74,7 +74,7 @@ $test::{
 }
 
 $test::{
-  description: "utf8_byte_length range must not be non-empty",
+  description: "utf8_byte_length range must be satisfiable",
   isl_for_isl_can_validate: false,
   invalid_types:[
     { utf8_byte_length: range::[2, 1] },

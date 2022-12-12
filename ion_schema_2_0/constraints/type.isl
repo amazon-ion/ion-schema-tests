@@ -1,12 +1,12 @@
 $ion_schema_2_0
 
 type::{
-  name: 'type: any',
+  name: type_named_type,
   type: any,
 }
 
 $test::{
-  type: 'type: any',
+  type: type_named_type,
   should_accept_as_valid: [
     true,
     1,

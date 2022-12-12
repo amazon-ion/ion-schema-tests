@@ -29,15 +29,16 @@ type::{
 
 #### `type`/`should_accept_as_valid`/`should_reject_as_invalid` Tests
 A test case that checks to see if certain values match a type.
+The type name should be descriptive of the specific functionality being tested.
 ```ion
 type::{
-  name: short_string,
+  name: string_with_codepoint_length_range,
   type: string,
   codepoint_length: range::[0, 10],
 }
 
 $test::{
-  type: short_string,
+  type: string_with_codepoint_length_range,
   should_accept_as_valid: [
     "",
     "Hello!",

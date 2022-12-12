@@ -1,12 +1,12 @@
 $ion_schema_2_0
 
 type::{
-  name: 'precision: 2',
+  name: precision_with_single_value,
   precision: 2,
 }
 
 $test::{
-  type: 'precision: 2',
+  type: precision_with_single_value,
   should_accept_as_valid:[
     0.42,
     4.2d-1,
@@ -24,12 +24,12 @@ $test::{
 }
 
 type::{
-  name: 'precision: range::[2, 4]',
+  name: precision_with_range,
   precision: range::[2, 4],
 }
 
 $test::{
-  type: 'precision: range::[2, 4]',
+  type: precision_with_range,
   should_accept_as_valid:[
     42d10,
     42d2,
@@ -85,7 +85,7 @@ $test::{
 }
 
 $test::{
-  description: "precision range must not be non-empty",
+  description: "precision range must be satisfiable",
   isl_for_isl_can_validate: false,
   invalid_types:[
     { precision: range::[2, 1] },

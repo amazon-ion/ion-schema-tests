@@ -1,12 +1,12 @@
 $ion_schema_2_0
 
 type::{
-  name: 'annotations: closed::[foo, bar]',
+  name: closed_annotations,
   annotations: closed::[foo, bar],
 }
 
 $test::{
-  type: 'annotations: closed::[foo, bar]',
+  type: closed_annotations,
   should_accept_as_valid: [
     0,
     foo::1,
@@ -27,12 +27,12 @@ $test::{
 
 type::{
   // Important use case—no annotations allowed
-  name: 'annotations: closed::[]',
+  name: closed_no_annotations,
   annotations: closed::[],
 }
 
 $test::{
-  type: 'annotations: closed::[]',
+  type: closed_no_annotations,
   should_accept_as_valid: [
     0,
     true,
@@ -49,12 +49,12 @@ $test::{
 }
 
 type::{
-  name: 'annotations: required::[foo, bar]',
+  name: required_annotations,
   annotations: required::[foo, bar],
 }
 
 $test::{
-  type: 'annotations: required::[foo, bar]',
+  type: required_annotations,
   should_accept_as_valid: [
     foo::bar::1,
     bar::foo::2,
@@ -75,12 +75,12 @@ $test::{
 }
 
 type::{
-  name: 'annotations: closed::required::[foo, bar]',
+  name: closed_and_required_annotations,
   annotations: closed::required::[foo, bar],
 }
 
 $test::{
-  type: 'annotations: closed::required::[foo, bar]',
+  type: closed_and_required_annotations,
   should_accept_as_valid: [
     foo::bar::1,
     bar::foo::2,

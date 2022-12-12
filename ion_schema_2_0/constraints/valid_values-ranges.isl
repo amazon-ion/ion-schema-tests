@@ -372,7 +372,7 @@ $test::{
 }
 
 $test::{
-  description: "valid_values ranges must not be non-empty",
+  description: "valid_values ranges must be satisfiable",
   isl_for_isl_can_validate: false,
   invalid_types:[
     { valid_values: range::[ 1, 0 ] },

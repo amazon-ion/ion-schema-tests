@@ -1,12 +1,12 @@
 $ion_schema_2_0
 
 type::{
-  name: 'contains: []',
+  name: contains_with_empty_arg_list,
   contains: [],
 }
 
 $test::{
-  type: 'contains: []',
+  type: contains_with_empty_arg_list,
   // Should match any non-null container type
   should_accept_as_valid:[
     (),
@@ -25,13 +25,13 @@ $test::{
 }
 
 type::{
-  name: 'contains: [true, 1, a, null]',
+  name: contains_with_non_empty_arg_list,
   contains: [true, 1, a, null],
 }
 
 $test::{
   // Test various "normal" values.
-  type: 'contains: [true, 1, a, null]',
+  type: contains_with_non_empty_arg_list,
   should_accept_as_valid:[
     [true, 1, a, null],
     [a, null, 1, true],
@@ -56,12 +56,12 @@ $test::{
 }
 
 type::{
-  name: 'contains: [[a]]',
+  name: contains_with_nested_list,
   contains: [[a]],
 }
 
 $test::{
-  type: 'contains: [[a]]',
+  type: contains_with_nested_list,
   should_accept_as_valid:[
     [true, [a]],
     [[a]],
@@ -77,12 +77,12 @@ $test::{
 }
 
 type::{
-  name: 'contains: [1, 1]',
+  name: contains_with_duplicate_elements,
   contains: [1, 1],
 }
 
 $test::{
-  type: 'contains: [1, 1]',
+  type: contains_with_duplicated_value,
   should_accept_as_valid:[
     [1],
     [1, 2, 3],
@@ -96,12 +96,12 @@ $test::{
 }
 
 type::{
-  name: 'contains: [foo::bar::1]',
+  name: contains_with_annotated_value,
   contains: [foo::bar::1],
 }
 
 $test::{
-  type: 'contains: [foo::bar::1]',
+  type: contains_with_annotated_value,
   should_accept_as_valid:[
     [foo::bar::1],
     [+inf, foo::bar::1, abc, null],
