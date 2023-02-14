@@ -51,6 +51,8 @@ $test::{
   description: "Any type of Ion value can be top-level open content",
   valid_schemas:[
     ( $ion_schema_2_0 null ),
+    ( $ion_schema_2_0 null.symbol ),
+    ( $ion_schema_2_0 null.struct ),
     ( $ion_schema_2_0 true ),
     ( $ion_schema_2_0 2000 ),
     ( $ion_schema_2_0 3000e0 ),
