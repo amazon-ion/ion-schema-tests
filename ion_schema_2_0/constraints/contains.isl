@@ -77,7 +77,7 @@ $test::{
 }
 
 type::{
-  name: contains_with_duplicate_elements,
+  name: contains_with_duplicated_value,
   contains: [1, 1],
 }
 
