@@ -112,7 +112,7 @@ $test::{
 
 $test::{
   // Ion Schema version markers are ^\$ion_schema_\d.*
-  // https://amzn.github.io/ion-schema/docs/isl-versioning#ion-schema-version-markers
+  // https://amazon-ion.github.io/ion-schema/docs/isl-versioning#ion-schema-version-markers
   description: "an Ion Schema version marker (even an invalid one) is never valid user content",
   invalid_schemas:[
     ( $ion_schema_2_0 $ion_schema_123_456 ),

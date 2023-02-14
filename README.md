@@ -1,6 +1,6 @@
 ## Ion Schema Tests
 
-This collection of files represents a test suite for implementations of the [Ion Schema Specifications](https://amzn.github.io/ion-schema/docs).
+This collection of files represents a test suite for implementations of the [Ion Schema Specifications](https://amazon-ion.github.io/ion-schema/docs).
 This file describes how the tests are defined.
 
 There are four explicit and two implicit types of test cases.
