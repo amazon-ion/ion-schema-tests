@@ -235,6 +235,7 @@ $test::{
 
 $test::{
   description: "when imported schema or type does not exist, should be an invalid schema",
+  isl_for_isl_can_validate: false,
   invalid_schemas: [
     (
       $ion_schema_2_0
