@@ -32,27 +32,33 @@ $test::{
     (
       $ion_schema_2_0
       schema_header::{
-        type: [a, b, c],
-        // 'foo' is not one of the allowed fields in the user_reserved_fields struct
-        foo: [d, e, f],
+        user_reserved_fields: {
+          type: [ a, b, c ],
+          // 'foo' is not one of the allowed fields in the user_reserved_fields struct
+          foo: [ d, e, f ],
+        }
       }
       schema_footer::{}
     ),
     (
       $ion_schema_2_0
       schema_header::{
-        type: [a, b, c],
-        // Not even unreserved field names.
-        $Foo: [d, e, f],
+        user_reserved_fields: {
+          type: [a, b, c],
+          // Not even unreserved field names.
+          $Foo: [d, e, f],
+        }
       }
       schema_footer::{}
     ),
     (
       $ion_schema_2_0
       schema_header::{
-        type: [a, b, c],
-        // Unexpected repetition of the field name
-        type: [d, e, f],
+        user_reserved_fields: {
+          type: [a, b, c],
+          // Unexpected repetition of the field name
+          type: [d, e, f],
+        }
       }
       schema_footer::{}
     ),

@@ -139,6 +139,7 @@ $test::{
 
 $test::{
   description: "A schema should not be able to reference an aliased type by its original name",
+  isl_for_isl_can_validate: false,
   invalid_schemas: [
     (
       $ion_schema_2_0
@@ -211,6 +212,7 @@ $test::{
 
 $test::{
   description: "Two different imported types with the same name or alias should result in an error",
+  isl_for_isl_can_validate: false,
   invalid_schemas: [
     (
       $ion_schema_2_0
@@ -237,6 +239,7 @@ $test::{
 
 $test::{
   description: "Importing a type with the same name or alias as locally defined type should result in an error",
+  isl_for_isl_can_validate: false,
   invalid_schemas: [
     (
       // Name conflict from schema import

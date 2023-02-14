@@ -32,6 +32,7 @@ $test::{
 
 $test::{
   description: "no imported types should be available in this schema's scope",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { type: b_type, },
     { type: c_type, },

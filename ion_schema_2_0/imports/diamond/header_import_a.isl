@@ -41,6 +41,7 @@ schema_footer::{}
 
 $test::{
   description: "no indirectly imported types should be available in this schema's scope",
+  isl_for_isl_can_validate: false,
   invalid_types: [
     { type: d_type, },
   ]
