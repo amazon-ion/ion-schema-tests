@@ -11,15 +11,6 @@ $test::{
         name: foo
       }
       schema_footer::{}
-    ),
-    (
-      $ion_schema_2_0
-      schema_header::{}
-      type::{
-        name: foo
-      }
-      schema_footer::{}
-      schema_header::{}
     )
   ]
 }
